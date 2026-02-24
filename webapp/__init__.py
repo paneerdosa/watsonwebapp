@@ -11,3 +11,7 @@ def create_app():
     from . import routes
     app.register_blueprint(routes.bp)
     return app
+
+
+# Create the application instance for Gunicorn
+app = create_app()
