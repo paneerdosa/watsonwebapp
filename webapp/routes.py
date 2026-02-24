@@ -7,7 +7,6 @@ from sentiment_analyzer.analyzer import sentiment_analyzer
 
 bp = Blueprint('main', __name__)
 
-
 @bp.route('/', methods=['GET'])
 def index():
     """Root endpoint returning API usage information."""
@@ -15,6 +14,10 @@ def index():
         "message": "Sentiment Analysis API. Use POST /analyze with JSON {'text': 'your text'}"
     })
 
+@bp.route('/test', methods=['GET'])
+def test():
+    """Simple test endpoint to check if app is running."""
+    return jsonify({"status": "ok", "message": "App is working!"})
 
 @bp.route('/analyze', methods=['POST'])
 def analyze():
